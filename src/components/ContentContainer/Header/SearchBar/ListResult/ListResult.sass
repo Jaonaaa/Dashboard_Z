@@ -1,0 +1,64 @@
+@use '../../../../../breakpoints'
+.list_container
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .loader_load
+        @include breakpoints.break_MD()
+            width: 2.2rem !important
+            height: 2.2rem !important
+    .list_p_container
+        position: relative
+        width: 100%
+        .indice_count
+            margin-top: 0.5rem
+            position: absolute
+            font-size: 0.8rem
+            color: #fff
+            background: var(--secondary)
+            padding: 0.3rem 0.9rem
+            border-radius: 0.3rem
+            z-index: 2
+            text-align: center
+            left: 1rem
+            top: 0rem
+            @include breakpoints.break_MD()
+                font-size: 0.75rem
+                padding: 0.25rem 0.8rem
+        .list
+            display: flex
+            width: 100%
+            margin-top: 1.4rem
+            position: relative
+            flex-direction: column
+            padding-left: 0.25rem
+            max-height: 25rem
+            overflow-y: scroll
+            overflow-x: hidden
+            padding-bottom: 1rem
+            @include breakpoints.break_MD()
+                margin-top: 0.9rem
+                max-height: 60vh
+
+            .row
+                width: 100%
+                padding: 1rem 0.5rem
+                min-height: 4.5rem
+                background: transparent
+                transition: all 0.1s ease-in-out
+                display: flex
+                align-items: center
+                margin-bottom: 0.1rem
+                justify-content: center
+                cursor: pointer
+                @include breakpoints.break_LG()
+                    min-height: 4rem
+                @include breakpoints.break_MD()
+                    padding: 0.7rem 0.3rem
+                    min-height: 3.7rem
+                &:hover
+                    background: var(--bg-color-hovered)
+
+.active
+    padding: 1rem 0

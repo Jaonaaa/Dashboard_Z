@@ -1,0 +1,126 @@
+@use '../../../../breakpoints'
+.search_bar_container
+    display: flex
+    padding: 0.5rem 0.4rem 0.5rem 1.4rem
+    align-items: center
+    border-radius: 0.3rem
+    cursor: pointer
+    height: 2.6rem
+    margin-top: 0.3rem
+    background: var( --search-bg)
+    transition: all 0.2s ease-in-out
+    @include breakpoints.break_LG()
+        padding: 0.3rem 0.3rem
+        height: 2.3rem
+        margin-left: auto
+        margin-right: 1rem
+
+    &:hover
+        background: var( --search-bg-hovered)
+    *
+        transition: all 0.2s ease-in-out
+
+    .placeholder
+        font-size: 0.84rem
+        opacity: 0.5
+        min-width: 12rem
+        max-width: 12rem
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        margin-right: 2.5rem
+        margin-bottom: -0.2rem
+        @include breakpoints.break_LG()
+            overflow: hidden
+            width: 0
+            min-width: 0
+            margin-right: 0
+            margin-left: auto
+    .icon
+        height: 1.8rem
+        width: 1.8rem
+        display: flex
+        border-radius: 0.5rem
+        justify-content: center
+        align-items: center
+        background: var( --search-bg)
+        @include breakpoints.break_LG()
+            background: transparent
+        svg
+            font-size: 1.05rem
+            @include breakpoints.break_LG()
+                font-size: 1.1rem
+.search_input_container
+    background: var(--bg-color)
+    width: 40vw
+    border-radius: 1rem 1rem 0.8rem 0.8rem
+    display: flex
+    align-items: center
+    justify-content: center
+    position: fixed
+    flex-direction: column
+    top: 20%
+    min-width: 50rem
+    @include breakpoints.break_LG()
+        min-width: 0
+        width: 80vw
+    @include breakpoints.break_MD()
+        width: 93vw
+        border-radius: 0.5rem
+        top: 10%
+
+    .input
+        width: 100%
+        display: flex
+        align-items: center
+        position: relative
+        &::before
+            content: ""
+
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 0
+            height: 1px
+            width: 100%
+            background: var(--text-color)
+            opacity: 0.15
+
+        input
+            padding: 0.5rem 0.5rem
+            outline: none
+            width: 100%
+            background: transparent
+            border: none
+            font-size: 1.05rem
+            // background: red
+            @include breakpoints.break_MD()
+                padding: 0.35rem
+                font-size: 0.9rem
+    .result_list
+        width: 100%
+    .icon
+        min-width: 3.2rem
+        height: 3.2rem
+        margin: 0.5rem 0
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        border-radius: 50%
+        transition: all 0.2s ease-in-out
+        @include breakpoints.break_MD()
+            min-width: 2.8rem
+            height: 2.8rem
+        svg
+            font-size: 1.3rem
+            @include breakpoints.break_MD()
+                font-size: 1.1rem
+        &:hover
+            background: var(--bg-color-body)
+    .left
+        margin-left: 0.5rem
+        margin-right: 0.3rem
+    .right
+        margin-right: 0.5rem
+        margin-left: 0.3rem

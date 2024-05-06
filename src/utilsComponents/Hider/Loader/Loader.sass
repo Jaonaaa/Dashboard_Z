@@ -1,0 +1,64 @@
+.loader_icon
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 4rem
+    height: 4rem
+    svg
+        width: 4rem
+        height: 4rem
+        circle
+            stroke: var(--primary)
+            stroke-dasharray: 10rem
+            animation: circled 3s linear infinite forwards
+            transform-origin: center
+            stroke-width: 0.175rem
+.white__
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 4rem
+    height: 4rem
+    svg
+        width: 4rem
+        height: 4rem
+        circle
+            stroke: #fff
+            stroke-dasharray: 10rem
+            animation: circled_white 3s linear infinite forwards !important
+            transform-origin: center
+            stroke-width: 0.175rem
+
+@keyframes circled
+    0%
+        stroke-dashoffset: 0
+        transform: rotateZ(0deg)
+    25%
+        stroke-dashoffset: -15rem
+        stroke: var(--secondary)
+    50%
+        stroke-dashoffset: -20rem
+        stroke: #000000
+    75%
+        stroke-dashoffset: -25rem
+        stroke: var(--primary)
+    100%
+        stroke-dashoffset: -40rem
+        transform: rotateZ(360deg)
+
+@keyframes circled_white
+    0%
+        stroke-dashoffset: 0
+        transform: rotateZ(0deg)
+    25%
+        stroke-dashoffset: -15rem
+        stroke: #fff
+    50%
+        stroke-dashoffset: -20rem
+        stroke: #7b7777
+    75%
+        stroke-dashoffset: -25rem
+        stroke: #fff
+    100%
+        stroke-dashoffset: -40rem
+        transform: rotateZ(360deg)

@@ -1,0 +1,12 @@
+@use '../../breakpoints'
+.graphs_container
+    position: relative
+    width: 100%
+    .container_block
+        width: 50%
+        @include breakpoints.break_LG()
+            width: 90%
+            margin-bottom: 10%
+        @include breakpoints.break_MD()
+            width: 100%
+            margin-bottom: 1.5rem

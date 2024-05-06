@@ -1,0 +1,44 @@
+
+@use '../../../breakpoints'
+
+.container_header
+    display: flex
+    width: 100%
+    min-height: 3.8rem
+    align-items: center
+    padding: 0 0.5rem
+    justify-content: space-between
+    .first
+        display: flex
+        align-items: center
+        .btn_show_navbar
+            overflow: hidden
+            width: 0
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 2rem
+            pointer-events: none
+            border-radius: 50%
+            transition: all 0.2s ease-in-out
+            cursor: pointer
+            @include breakpoints.break_MD()
+                width: 2rem
+                pointer-events: auto
+                svg
+                    width: 6.5px
+
+            svg
+                path
+                    fill: var(--text-color)
+#hider_nav
+    position: fixed
+    left: 0
+    top: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    background: #0000008b
+    z-index: 4

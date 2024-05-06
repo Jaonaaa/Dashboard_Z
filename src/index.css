@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "Poppins_L";
+  src: url(./assets/fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: "Poppins_B";
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Sora_R";
+  src: url(./assets/fonts/Sora-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Sora_L";
+  src: url(./assets/fonts/Sora-Light.ttf);
+}
+
+@font-face {
+  font-family: "Sora_SM";
+  src: url(./assets/fonts/Sora-SemiBold.ttf);
+}
+
+:root {
+  --primary: #e50242;
+  --primary-hovered: #b60638;
+  --secondary: #58d85a;
+  --secondary-hovered: #1c8f1e;
+  --box-shadow-color: #f2f2f2;
+  --bg-color: #fff;
+  --bg-color-body: #f4f4f4;
+  --bg-color-hovered: #edededcf;
+  --text-bold-color: #000000;
+  --text-color: #373737;
+  --input-bg: #ffffff;
+  --bg-scrollbar-track: rgba(234, 233, 233, 0.118);
+  --search-bg: #c7c6c645;
+  --search-bg-hovered: #c7c6c682;
+}
+
+.light_theme {
+  --primary: #674dee;
+  --primary-hovered: #4530ae;
+  --secondary: #34a623;
+  --secondary-hovered: rgb(18, 99, 19);
+  --box-shadow-color: #f2f2f2;
+  --bg-color: #fff;
+  --bg-color-body: #f4f4f4;
+  --bg-color-hovered: #edededcf;
+  --text-bold-color: #000000;
+  --text-color: #353535;
+  --input-bg: #ffffff;
+  --bg-scrollbar-track: rgba(234, 233, 233, 0.118);
+  --search-bg: #c7c6c645;
+  --search-bg-hovered: #c7c6c682;
+}
+
+.dark_theme {
+  --primary: #16a4c3;
+  --primary-hovered: #0d809a;
+  --secondary: #ada62a;
+  --secondary-hovered: #777215;
+  --box-shadow-color: #3e3e3e;
+  --bg-color: #0e1120;
+  --bg-color-body: #0b0d19;
+  --bg-color-hovered: #0b0d19;
+  --text-bold-color: #fff;
+  --text-color: #cbc7c7;
+  --input-bg: #110e1e;
+  --bg-scrollbar-track: rgba(6, 8, 44, 0.118);
+  --search-bg: #38373a45;
+  --search-bg-hovered: #38373a8a;
+}
+
+
+
+body {
+  margin: 0;
+  background: var(--bg-color-body);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Poppins_L;
+  color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 2px;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border-radius: 0.2rem;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-family: "Sora_R";
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--text-color);
+}
+
+button:hover {
+  transform: scale(1.03);
+}

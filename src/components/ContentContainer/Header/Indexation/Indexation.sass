@@ -1,0 +1,27 @@
+@use '../../../../breakpoints'
+.indexation_container
+    margin-left: 1.8rem
+    display: flex
+    align-items: center
+    transition: all 0.2s ease-in-out
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    width: 8rem
+    max-width: 8rem
+    @include breakpoints.break_MD()
+        margin-left: 1rem
+    @include breakpoints.break_SM()
+        margin-left: 0.75rem
+    .index_before
+        margin-right: 0.5rem
+        color: #838285c0
+    .index_current
+        color: var(--text-color)
+    span
+        font-size: 1.1rem
+        font-family: "Sora_R"
+        @include breakpoints.break_MD()
+            font-size: 1rem
+        @include breakpoints.break_SM()
+            font-size: 0.9rem

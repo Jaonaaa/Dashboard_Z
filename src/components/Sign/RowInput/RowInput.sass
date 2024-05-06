@@ -1,0 +1,51 @@
+@use '../../../breakpoints'
+
+.row_input
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    position: relative
+    width: fit-content
+    margin: 0.5rem auto 0.8rem auto
+    ._input
+        position: relative
+        width: 100%
+        padding: 1.2rem 0 0 0
+        transition: all 0.2s ease-in-out
+        @include breakpoints.break_MD()
+            padding: 1.4rem 0 0 0
+        input
+            width: 100%
+            padding: 1rem 0.85rem
+            outline: none
+            color: var(--text-color)
+            background: transparent
+            transition: all 0.2s ease-in-out
+            border-radius: 0.12rem
+            border: none
+            box-shadow: 0 0 0.1rem 0.05rem #a7a5a5e8
+            transition: all 0.2s ease-in-out
+            @include breakpoints.break_MD()
+                font-size: 0.8rem
+                padding: 1rem 0.85rem
+            &:focus
+                box-shadow: 0 0 0.1rem 0.05rem var(--primary)
+        .placeholder
+            position: absolute
+            pointer-events: none
+            top: 48%
+            font-size: 0.9rem
+            transition: all 0.2s ease-in-out
+            left: 1rem
+            @include breakpoints.break_MD()
+                font-size: 0.82rem
+                top: 54%
+        .up
+            top: 0
+            left: 0.2rem
+            font-size: 0.75rem
+            // color: var(--primary)
+            font-weight: bolder
+
+.fullWidth
+    width: 100%

@@ -1,0 +1,166 @@
+@use '../../../breakpoints'
+
+.actu_swiper_container
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: nowrap
+    overflow: hidden
+    width: auto
+    border-radius: 1.2rem
+    position: relative
+    min-width: 20rem
+    &::selection
+        background-color: transparent
+    .counter_part
+        position: absolute
+        top: 1.7rem
+        left: 1.5rem
+        display: flex
+        flex-wrap: nowrap
+        gap: 0.42rem
+        z-index: 3
+        @include breakpoints.break_MD()
+            gap: 0.37rem
+            top: 1.5rem
+
+        .round
+            min-width: 0.6rem
+            min-height: 0.6rem
+            border-radius: 50%
+            background: #ffffff5f
+            cursor: pointer
+            transition: all 0.2s ease-in-out
+            @include breakpoints.break_MD()
+                min-width: 0.5rem
+                min-height: 0.5rem
+            @include breakpoints.break_SM()
+                min-width: 0.4rem
+                min-height: 0.4rem
+
+            &:hover
+                background: #ffffffab
+        .on
+            background: #ffffffab
+            &:hover
+                background: #ffffffab
+    .switcher_part
+        position: absolute
+        top: 1.5rem
+        right: 1.7rem
+        display: flex
+        flex-wrap: nowrap
+        gap: 0.2rem
+        z-index: 3
+        @include breakpoints.break_MD()
+            top: 1.2rem
+            right: 1.5rem
+        @include breakpoints.break_XSM()
+            right: 1.3rem
+            top: 1rem
+        .go_left,.go_right
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 1.1rem
+            cursor: pointer
+            transition: all 0.2s ease-in-out
+            @include breakpoints.break_MD()
+                width: 0.94rem
+            @include breakpoints.break_SM()
+                width: 0.88rem
+            &::selection
+                background-color: transparent
+            &:hover
+                svg
+                    path
+                        fill: #ffffffab
+            svg
+                path
+                    fill: #ffffff5f
+
+        .go_left
+            transform: rotate(180deg)
+
+    .block_actu
+        display: flex
+        justify-content: center
+        align-items: center
+        z-index: 1
+
+        min-width: 100%
+        height: 100%
+        transition: all 0.3s ease-in-out
+        &::selection
+            background-color: transparent
+        .actu_pic
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 100%
+            height: 100%
+            &::selection
+                background-color: transparent
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                &::selection
+                    background-color: transparent
+    .overlay
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        background: linear-gradient(179deg, transparent,#00000000,transparent,transparent,transparent,#00000041,#00000089,#000000ab)
+        position: absolute
+        z-index: 2
+    .about
+        position: absolute
+        left: 1.5rem
+        width: calc( 100% - 3rem )
+        max-width: calc( 100% - 3rem )
+        top: 67.8%
+        z-index: 3
+        @include breakpoints.break_MD()
+            top: 65.8%
+        .categorie
+            font-size: 0.9rem
+            text-transform: uppercase
+            color: var(--primary)
+            font-weight: bolder
+            @include breakpoints.break_LG()
+                font-size: 0.88rem
+            @include breakpoints.break_MD()
+                font-size: 0.81rem
+            @include breakpoints.break_XSM()
+                font-size: 0.72rem
+        .title_about
+            font-size: 1.14rem
+            font-weight: bolder
+            font-family: "Poppins_B"
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            max-width: 80%
+            color: #ffffff
+            margin-bottom: 0.3rem
+            @include breakpoints.break_LG()
+                font-size: 0.95rem
+            @include breakpoints.break_MD()
+                font-size: 0.87rem
+            @include breakpoints.break_XSM()
+                font-size: 0.78rem
+        .description
+            font-size: 0.75rem
+            display: -webkit-box
+            text-overflow: hidden
+            -webkit-line-clamp: 2
+            -webkit-box-orient: vertical
+            color: #f3f3f3ef
+            @include breakpoints.break_LG()
+                font-size: 0.74rem
+            @include breakpoints.break_MD()
+                font-size: 0.7rem
+            @include breakpoints.break_XSM()
+                font-size: 0.62rem

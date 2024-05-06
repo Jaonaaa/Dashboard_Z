@@ -1,0 +1,182 @@
+
+@use '../../breakpoints'
+
+.input_
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    margin: 1rem 0 1rem 0
+    width: fit-content
+    position: relative
+
+    .icon_calendar
+        position: absolute
+        right: 1rem
+        top: 55%
+        background: var(--input-bg )
+        z-index: 1
+        pointer-events: none
+        &::after
+            content: ""
+            position: absolute
+            right: -58%
+            top: -5%
+            width: 0.77rem
+            z-index: 1
+            transition: all 0.2s ease-in-out
+            background: red
+            height: 100%
+            background: var(--input-bg )
+            pointer-events: none
+    label,.label_
+        font-size: 0.87rem
+        color: var(--text-bold-color)
+        font-family: Sora_R
+        font-weight: bolder
+        margin-left: 0.2rem
+        margin-bottom: 0.5rem
+        transition: all 0.2s ease-in-out
+        @include breakpoints.break_MD()
+            font-size: 0.7rem
+    input,textarea
+        box-shadow: 0 0 0.1rem 0.1rem #9e9e9e47
+        border-radius: 0.2rem
+        border: none
+        padding: 0.65rem 0.6rem 0.65rem 0.8rem
+        width: 100%
+        min-width: 17rem
+        background: var( --input-bg)
+        font-size: 0.87rem
+        transition: all 0.2s ease-in-out
+        outline: none
+        color: var(--text-color)
+        @include breakpoints.break_MD()
+            min-width: 14rem
+            font-size: 0.82rem
+            padding: 0.87rem 0.5rem 0.87rem 0.8rem
+        @include breakpoints.break_XSM()
+            min-width: 13rem
+            font-size: 0.79rem
+        &:focus
+            box-shadow: 0 0 0.12rem 0.1rem var(--primary)
+        &:disabled
+            background: #59585860
+            opacity: 0.8
+            color: #ffff
+            pointer-events: none
+    textarea
+        padding: 0.5rem
+        // height: 10rem
+        resize: none
+
+    .label_file_container
+        margin: 1rem auto
+        width: 22rem
+        height: 15.5rem
+        display: flex
+        position: relative
+        justify-content: center
+        cursor: pointer
+        transition: all 0.2s ease-in-out
+        align-items: center
+        flex-direction: column
+        border-radius: 0.1rem
+        // padding: 0.3rem
+        background: transparent
+        box-shadow: 0 0 0rem 0rem #6765655a
+        @include breakpoints.break_XSM()
+            width: 17.5rem
+            margin-top: 0.2rem
+            height: 13.5rem
+        &:hover
+            .span
+                transform: scale(1.03)
+            .icon_container
+                transform: scale(1.13)
+        .icon_container
+            height: 6rem
+            width: 6rem
+            display: flex
+            transform: scale(1.1)
+            justify-content: center
+            align-items: center
+            transition: all 0.2s ease-in-out
+            margin-bottom: 0rem
+        .span
+            font-weight: bolder
+            font-size: 1rem
+            transition: all 0.2s ease-in-out
+        img
+            width: 100%
+            height: 100%
+            object-fit: contain
+        .icon
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 0.8rem
+            svg
+                width: 4.2rem
+                @include breakpoints.break_XSM()
+                    width: 4rem
+    .add_file
+        position: absolute
+        z-index: 2
+        pointer-events: none
+        right: 0.5rem
+        top: 2%
+        width: 2.8rem
+        height: 2.8rem
+        display: flex
+        justify-content: center
+        align-items: center
+        background: transparent
+        border-radius: 50%
+        padding: 0.6rem
+.fullwidth
+    width: 100%
+
+.checkbox
+    display: flex
+    align-items: center
+    flex-wrap: nowrap
+    flex-direction: row
+    justify-content: center
+    position: relative
+    .checkbox_container
+        display: flex
+        width: 3.8rem
+        height: 1.75rem
+        background: var( --input-bg)
+        border: 2px solid var(--primary-hovered)
+        background: var(--primary-hovered)
+        cursor: pointer
+        border-radius: 1.5rem
+        position: relative
+        align-items: center
+        justify-content: center
+        transition: all 0.2s linear
+
+        .state
+            height: 1.44rem
+            width: 1.44rem
+            top: 50%
+            border-radius: 50%
+            position: absolute
+            background: var(--text-color)
+            transition: all 0.2s ease-in-out
+        .on
+            right: 2%
+            background: #fff
+            transform: translateY(-50%)
+
+        .off
+            right: 98%
+            transform: translateX(100%) translateY(-50%)
+    .off
+        border: 2px solid var(--text-color)
+        background: transparent
+
+    label
+        margin-bottom: 0
+        margin-left: 0.5rem

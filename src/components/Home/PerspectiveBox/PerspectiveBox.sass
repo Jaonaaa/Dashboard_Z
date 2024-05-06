@@ -1,0 +1,139 @@
+@use '../../../breakpoints'
+.container_perspective_box
+    box-shadow: none !important
+    padding: 1.2rem 1.6rem
+    // min-width: 25rem
+    min-width: 100%
+    margin: auto
+    border-radius: 0.5rem
+    position: relative
+    justify-content: space-between !important
+    align-items: stretch !important
+    min-height: 9rem
+    flex-direction: row
+    transition: all 0.2s ease-in-out
+    cursor: pointer
+    overflow: hidden
+    transition: all 0.2s ease-in-out
+    @include breakpoints.break_LG()
+        min-width: 24rem
+        width: 100%
+    @include breakpoints.break_MD()
+        min-width: 90%
+        padding: 0.8rem 1.2rem
+        min-height: 8rem
+    @include breakpoints.break_SM()
+        min-width: 95%
+        min-height: 7.5rem
+
+    &:hover
+        transform: translateY(-0.5rem)
+    .left
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 65%
+        .title_box
+            font-size: 0.84rem
+            font-family: "Sora_SM"
+            color: var(--text-cold-color)
+            margin-bottom: 1.5rem
+            transition: all 0.2s ease-in-out
+            @include breakpoints.break_MD()
+                font-size: 0.8rem
+            @include breakpoints.break_SM()
+                font-size: 0.76rem
+
+        .description_state
+            display: flex
+            align-items: center
+            margin-bottom: 1.2rem
+            .icon
+                width: 1.5rem
+                height: 1.2rem
+
+                margin-right: 0.5rem
+                .icon_
+                    font-size: 1.5rem
+                    margin-top: -0.2rem
+                    path
+                        color: #d23535
+            .value
+                font-size: 1rem
+                font-weight: bolder
+                display: flex
+                align-items: baseline
+                color: var(--text-cold-color)
+                @include breakpoints.break_MD()
+                    font-size: 0.75rem
+                @include breakpoints.break_SM()
+                    font-size: 0.7rem
+
+        .value_box
+            font-size: 1.63rem
+            color: var(--text-cold-color)
+            font-weight: bolder
+            font-family: "Poppins_B"
+            @include breakpoints.break_MD()
+                font-size: 1.4rem
+            @include breakpoints.break_SM()
+                font-size: 1.3rem
+
+    .right
+        width: 45%
+        height: 100%
+        --bubble-bg: #53b8a0
+        .deco_bubble
+            position: absolute
+            right: 0%
+            top: -25%
+            width: 7rem
+            opacity: 0.7
+            height: 7rem
+            border-radius: 50%
+            background: var(--bubble-bg)
+            background: linear-gradient(170deg,var(--bubble-bg),var(--bubble-bg),transparent)
+            @include breakpoints.break_MD()
+                width: 5.5rem
+                height: 5.5rem
+                top: -20%
+            @include breakpoints.break_SM()
+                width: 4rem
+                height: 4rem
+            &::before
+                content: ""
+                position: absolute
+                left: 90%
+                top: 75%
+                transform: translate(-50%,-50%)
+                width: 120%
+                height: 120%
+                background: linear-gradient(170deg,var(--bubble-bg),var(--bubble-bg),transparent)
+                border-radius: 50%
+                opacity: 0.5
+        .border_glow
+            position: absolute
+            width: 50%
+            bottom: 0
+            right: 0
+            &::before
+                content: ""
+                position: absolute
+                bottom: 0.11rem
+                right: 0.11rem
+                width: 110%
+                height: 1.3rem
+                border-radius: 0
+                background: var(--bg-color)
+                z-index: 2
+            &::after
+                content: ""
+                position: absolute
+                bottom: 0
+                right: 0
+                width: 100%
+                height: 1rem
+                opacity: 0.4
+                border-radius: 0
+                background: conic-gradient(from 45deg, var(--bubble-bg),transparent,transparent)
+                box-shadow: 0.5rem 0 0.1rem 0.3rem var(--bubble-bg)

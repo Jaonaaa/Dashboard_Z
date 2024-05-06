@@ -1,0 +1,108 @@
+@use '../../../breakpoints'
+
+.pagination_container
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 1.1rem
+    transition: all 0.2s ease-in-out
+    .left,.right
+        width: 2.2rem
+        height: 2.2rem
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 0.3rem
+        transition: all 0.2s ease-in-out
+        cursor: pointer
+        @include breakpoints.break_MD()
+            width: 1.8rem
+            height: 1.8rem
+
+        &:hover
+            background: var(--primary)
+            svg
+                path
+                    color: #fff
+        svg
+            font-size: 1.2rem
+            @include breakpoints.break_MD()
+                font-size: 1rem
+            @include breakpoints.break_SM()
+                font-size: 0.9rem
+            path
+                color: var(--primary)
+
+    .left
+        margin-right: 1rem
+        @include breakpoints.break_LG()
+            margin-right: 0.7rem
+        @include breakpoints.break_SM()
+            margin-right: 0.5rem
+    .right
+        margin-left: 1rem
+        @include breakpoints.break_LG()
+            margin-left: 0.7rem
+        @include breakpoints.break_SM()
+            margin-left: 0.5rem
+
+    .pages_index
+        display: flex
+        align-items: center
+        .spaces
+            width: 1.5rem
+            display: flex
+            align-items: center
+            font-size: 1.1rem
+            justify-content: center
+            @include breakpoints.break_MD()
+                width: 1.3rem
+                font-size: 1rem
+            @include breakpoints.break_SM()
+                width: 1.1rem
+                font-size: 0.9rem
+            &::selection
+                background: transparent
+                color: var(--text-color)
+        .block_index
+            width: 2.2rem
+            height: 2.2rem
+            margin: 0 0.3rem
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            background: transparent
+            transition: all 0.2s ease-in-out
+            border: 1px solid transparent
+            border-radius: 50%
+            font-size: 0.95rem
+            @include breakpoints.break_LG()
+                width: 2rem
+                height: 2rem
+            @include breakpoints.break_MD()
+                width: 1.8rem
+                height: 1.8rem
+                font-size: 0.8rem
+            @include breakpoints.break_SM()
+                width: 1.45rem
+                margin: 0 0.2rem
+                height: 1.45rem
+                font-size: 0.7rem
+            &:hover
+                border: 3px solid var(--primary)
+                color: var(--primary)
+            &::selection
+                background: transparent
+                color: var(--text-color)
+
+        .active_page
+            background: var(--primary)
+            color: #fff
+            border-radius: 50%
+            font-weight: bolder
+            &:hover
+                color: #fff
+            &::selection
+                color: #fff

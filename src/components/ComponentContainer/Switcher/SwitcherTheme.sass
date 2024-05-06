@@ -1,0 +1,36 @@
+.switcher_theme_container
+    display: flex
+    align-items: center
+    background: var(--bg-color-body)
+    border-radius: 0.4rem
+    position: relative
+    overflow: hidden
+    box-shadow: 0 0 0.1rem 0.1rem var(--box-shadow-color)
+    .block_theme
+        width: 7rem
+        height: 2.5rem
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 0.85rem
+        z-index: 2
+        cursor: pointer
+        font-family: "Sora_R"
+    .holder
+        content: ""
+        z-index: 1
+        position: absolute
+        width: 50%
+        height: 100%
+        background: var(--primary-hovered)
+        top: 0
+        transition: all 0.2s ease-in-out
+        left: 0
+    .light
+        left: 0
+        color: #ffff
+        border-radius: 0 0.2rem 0.2rem 0
+    .dark
+        left: 50%
+        color: #ffff
+        border-radius: 0.2rem 0 0 0.2rem

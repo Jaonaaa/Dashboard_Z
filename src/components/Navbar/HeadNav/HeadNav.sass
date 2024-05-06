@@ -1,0 +1,73 @@
+@use '../../../breakpoints'
+
+.head_nav
+    display: flex
+    width: 100%
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 1.7rem
+    transition: all 0.2s ease-in-out
+
+    .logo
+        display: flex
+        align-items: center
+        .icon
+            margin-right: 0.5rem
+            margin-top: 0.2rem
+            transition: all 0.2s ease-in-out
+
+            svg
+                @include breakpoints.break_LG()
+                    width: 2.5rem
+                path
+                    transition: all 0.2s ease-in-out
+        .text
+            font-family: "Sora_SM"
+            font-size: 1.42rem
+            pointer-events: none
+            white-space: nowrap
+            transition: all 0.2s ease-in-out,opacity 1s ease-in
+            color: var(--text-bold-color)
+            @include breakpoints.break_LG()
+                font-size: 1.34rem
+            @include breakpoints.break_MD()
+                font-size: 1.25rem
+            @include breakpoints.break_SM()
+                font-size: 1.2rem
+    .btn_small_nav
+        margin-top: 0.3rem
+        cursor: pointer
+        &:hover
+            svg
+                path
+                    stroke: var(--primary)
+        svg
+            path
+                stroke: var(--text-color)
+
+.navbar_container
+    .mini_head
+        margin-bottom: 1.7rem
+        margin-top: 0.9rem
+        .logo
+            width: 4rem
+            overflow: hidden
+            display: flex
+            justify-content: center
+            align-items: center
+            @include breakpoints.break_LG()
+                width: 3.5rem
+            .icon
+                margin-right: 0
+                cursor: pointer
+                display: flex
+                justify-content: center
+                align-items: center
+                &:hover
+                    svg
+                        path
+                            fill: var(--primary)
+            .text
+                width: 0
+                opacity: 0
+                overflow: hidden

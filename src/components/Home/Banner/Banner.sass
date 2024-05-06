@@ -1,0 +1,93 @@
+@use '../../../breakpoints'
+.banner_container
+    padding: 2.5rem 1.5rem 2.5rem 2.2rem
+    background: #cff6e3
+    border-radius: 1.2rem
+    min-width: 20rem
+
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 100%
+    overflow: scroll
+    flex-wrap: wrap
+    &::-webkit-scrollbar
+        display: none
+    @include breakpoints.break_MD()
+        max-width: none
+        height: fit-content
+
+    *
+        color: #151515
+    .left
+        max-width: 55%
+        @include breakpoints.break_XL_LG()
+            max-width: none
+            width: 100%
+        .title
+            font-family: "Sora_R"
+            font-size: 1.75rem
+            font-weight: 700
+            margin-bottom: 1.2rem
+            line-height: 2.15rem
+            color: #084d2c
+            transition: all 0.2s ease-in-out
+            max-width: 100%
+            -webkit-line-clamp: 2
+            overflow: hidden
+            -webkit-box-orient: vertical
+            @include breakpoints.break_LG()
+                font-size: 1.2rem
+                line-height: 2rem
+            @include breakpoints.break_MD()
+                font-size: 1.45rem
+                line-height: 2rem
+
+        .subtitle
+            font-size: 0.88rem
+            margin-bottom: 1.8rem
+            color: #237f53
+            transition: all 0.2s ease-in-out
+            display: -webkit-box
+            max-width: 100%
+            -webkit-line-clamp: 3
+            overflow: hidden
+            -webkit-box-orient: vertical
+            @include breakpoints.break_LG()
+                font-size: 0.76rem
+            @include breakpoints.break_MD()
+                font-size: 0.8rem
+
+        .button_
+
+            button
+                background: #48a377
+                color: #fff
+                border-radius: 0.35rem
+                border: none
+                padding: 0.75rem 1.5rem
+                transition: all 0.2s ease-in-out
+                display: flex
+                align-items: center
+                @include breakpoints.break_LG()
+                    font-size: 0.75rem
+                @include breakpoints.break_MD()
+                    font-size: 0.8rem
+                    padding: 0.7rem 1.3rem
+                svg
+                    margin-left: 0.3rem
+                    font-size: 1.05rem
+                    path
+                        stroke: #fff
+
+    .right
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 35%
+        @include breakpoints.break_XL_LG()
+            width: 0%
+            overflow: hidden
+        img
+            width: 100%
+            object-fit: contain

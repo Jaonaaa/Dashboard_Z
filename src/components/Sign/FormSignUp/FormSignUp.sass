@@ -1,0 +1,103 @@
+@use '../../../breakpoints'
+
+.sign_up_form
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    width: 22rem
+
+    @include breakpoints.break_SM()
+        width: 90vw
+    .logo
+        margin-bottom: 1.5rem
+        transition: all 0.2s ease-in-out
+        @include breakpoints.break_MD()
+            margin-bottom: 1rem
+        svg
+            rect
+                fill: var(--primary)
+            #Exclusion_1
+                fill: var(--primary)
+            path
+                fill: var(--primary)
+    .title
+        font-family: "Sora_SM"
+        font-size: 2.2rem
+        transition: all 0.2s ease-in-out
+        color: var(--text-bold-color)
+        margin-bottom: .5rem
+        @include breakpoints.break_MD()
+            font-size: 1.86rem
+        @include breakpoints.break_SM()
+            font-size: 1.78rem
+    .subtitle
+        color: #2b2b2b
+        text-align: center
+        font-size: 0.85rem
+        margin-bottom: 1.1rem
+        color: var(--text-color)
+        @include breakpoints.break_MD()
+            font-size: 0.8rem
+    form
+        display: flex
+        width: 100%
+        justify-content: center
+        align-content: center
+        flex-direction: column
+        .button
+            margin-top: 1.5rem
+            width: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            button
+                width: 100%
+                padding: 0.9rem 2rem
+                background: var(--primary)
+                color: #fff
+                border: none
+                &:hover
+                    transform: none
+                    background: var(--primary-hovered)
+        .sign_up_link
+            margin-top: 0.7rem
+            display: flex
+            font-size: 0.8rem
+            text-align: center
+            justify-content: center
+            margin-bottom: 0.7rem
+            .text
+                margin-right: 0.3rem
+            .link
+                color: var(--primary)
+                cursor: pointer
+                transition: all 0.2s ease-in-out
+                font-weight: bolder
+    .divider_form
+        width: 90%
+        margin-bottom: 1.5rem
+    .button_logo
+        margin-bottom: 1rem
+    .slider
+        display: flex
+        margin: 1rem 0
+        width: 100%
+        justify-content: center
+        transition: all 0.2s ease-in-out
+        @include breakpoints.break_MD()
+            margin: 0.7rem
+        .slide
+            width: 33%
+            height: 4px
+            border-radius: 0.5rem
+            background: var(--primary)
+            margin: 0 0.1rem
+            opacity: 0.4
+            transition: all 0.2s ease-in-out
+            cursor: pointer
+            &:hover
+                opacity: 0.8
+        .slide_on
+            opacity: 1
+            background: var(--primary)

@@ -1,0 +1,55 @@
+
+$breakpoint-xsm: 456px
+$breakpoint-sm: 576px
+$breakpoint-md: 768px
+$breakpoint-lg: 1012px
+$breakpoint-xl-lg: 1212px
+$breakpoint-xl: 1500px
+
+@mixin media($breakpoint)
+    @media (max-width: $breakpoint)
+        @content
+
+@mixin break_XL()
+    @media (max-width: $breakpoint-xl)
+        @content
+
+@mixin break_XL_LG()
+    @media (max-width: $breakpoint-xl-lg)
+        @content
+
+@mixin break_LG()
+    @media (max-width: $breakpoint-lg)
+        @content
+
+@mixin break_MD()
+    @media (max-width: $breakpoint-md)
+        @content
+
+@mixin break_SM()
+    @media (max-width: $breakpoint-sm)
+        @content
+
+@mixin break_XSM()
+    @media (max-width: $breakpoint-xsm)
+        @content
+
+@mixin flex_center_all()
+    display: flex
+    justify-content: center
+    align-items: center
+
+// --USAGE
+.card_test
+    @include flex_center_all()
+    border-radius: 0.9rem
+    overflow: hidden
+    @include media($breakpoint:$breakpoint-lg )
+        min-width: 15rem
+        height: 15rem
+    @include media($breakpoint:$breakpoint-md )
+        min-width: 14rem
+        height: 14rem
+    @include media($breakpoint:$breakpoint-sm )
+        min-width: 13rem
+        height: 13rem

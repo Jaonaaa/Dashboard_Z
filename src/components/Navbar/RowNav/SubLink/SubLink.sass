@@ -1,0 +1,55 @@
+@use '../../../../breakpoints'
+
+.paper_nav
+    position: relative
+    z-index: 2
+    .container
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        position: relative
+        padding: 0.4rem 0.5rem 0.3rem 0.4rem
+        background: var(--bg-color)
+        .row_sub_link
+            margin-bottom: 0.2rem
+            a
+                display: flex
+                padding: 0.8rem 0.2rem 0.8rem 0.5rem
+                width: 13rem
+                align-items: center
+                font-family: "Sora_L"
+                font-size: 0.9rem
+                border-radius: 0.3rem
+                transition: all 0.1s ease-in-out
+                cursor: pointer
+                @include breakpoints.break_LG()
+                    width: 12rem
+                    font-size: 0.86rem
+                @include breakpoints.break_MD()
+                    width: 10rem
+                    font-size: 0.8rem
+                @include breakpoints.break_SM()
+                    width: 8rem
+                    font-size: 0.76rem
+
+                &:hover
+                    background: var(--bg-color-hovered)
+        .active_row
+            background: var(--bg-color-hovered)
+    .icon_tri
+        position: absolute
+        right: 100%
+        z-index: 2
+        display: flex
+        justify-content: center
+        align-items: center
+        transform: translateY(25%)
+        svg
+            path
+                fill: var(--bg-color) !important
+            feFlood 
+                flood-color: var(--box-shadow-color)
+    .helper_paper
+        position: fixed
+        z-index: 2
+        background: transparent
