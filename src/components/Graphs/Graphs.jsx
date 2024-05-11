@@ -15,7 +15,7 @@ const example = {
     },
   ],
 };
-const example2 = {
+export const example2 = {
   labels: ["January", "February", "March", "April", "May"],
   datasets: [
     {
@@ -26,10 +26,17 @@ const example2 = {
       data: [60, 26, 60, 55, 20],
       tension: 0.2,
       fill: false,
-      borderColor: "rgb(75, 192, 192)",
-      borderWidth: 2.5,
+      // borderColor: "rgb(75, 192, 192)",
+      // borderWidth: 2.5,
     },
   ],
+  options: {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  },
 };
 
 const Graphs = () => {
@@ -45,7 +52,8 @@ const Graphs = () => {
               title="Second Chart"
               labels={example2.labels}
               datasets={example2.datasets}
-              type="line"
+              options={example2.options}
+              type="doughnut"
               positionTitle="bottom"
             />
           </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PictureIcon from "../../assets/icons/PictureIcon";
 import CalendarIcon from "../../assets/icons/CalendarIcon";
+import { FaFile } from "react-icons/fa6";
 import Checkbox from "./Checkbox/Checkbox";
 import { formateDateValue, handleTextArea, isDateOn } from "./functions";
 import "./Input.sass";
@@ -21,6 +22,7 @@ import "./Input.sass";
  * @property {string} [splitterTextArea="\\n"] - Splitter for text areas.
  * @property {number} [rows=10] - Number of rows for text areas.
  * @property {Function} [constraint=(val) => { return true; }] - Function to validate input.
+ * @property {boolean} [isPicture] - Function to validate input.
  */
 /**
  *
@@ -42,11 +44,13 @@ function Input(props) {
     splitterTextArea = "\\n",
     rows = 10,
     constraint = () => true,
+    isPicture = false,
   } = props;
 
   const [value, setValue] = useState(defaultValue);
   const [fileLoaded, setFileLoaded] = useState(false);
   const [filePreview, setFilePreview] = useState("");
+  const [fileUploaded, setFileUploaded] = useState(null);
 
   const handleValue = (e) => {
     setValue(e.target.value);
@@ -58,6 +62,7 @@ function Input(props) {
     if (e.target.files.length > 0) {
       let pathFileLoaded = URL.createObjectURL(e.target.files[0]);
       setFilePreview(pathFileLoaded);
+      setFileUploaded(e.target.files[0]);
     }
     onChange({
       target: {
@@ -100,14 +105,25 @@ function Input(props) {
                 <div className="icon">
                   <PictureIcon />
                 </div>
-                <div className="span"> {placeholder ? placeholder : "Choose a picture..."} </div>{" "}
+                <div className="span"> {placeholder ? placeholder : isPicture ? "Choose a picture..." : "Upload a file"} </div>{" "}
               </>
             ) : (
               <>
-                <div className="add_file">
-                  <PictureIcon />
-                </div>
-                <img src={filePreview} alt="" id={title + "_" + name} />
+                {isPicture ? (
+                  <>
+                    <div className="add_file">
+                      <PictureIcon />
+                    </div>
+                    <img src={filePreview} alt="" id={title + "_" + name} />
+                  </>
+                ) : (
+                  <div className="file_text">
+                    <div className="icon_file">
+                      <FaFile />
+                    </div>
+                    <div className="label">{fileUploaded ? fileUploaded.name : "Error on the file"}</div>
+                  </div>
+                )}
               </>
             )}
           </label>
@@ -116,7 +132,7 @@ function Input(props) {
             autoComplete="true"
             type={type}
             multiple
-            accept="image/*"
+            accept={isPicture ? "image/*" : null}
             name={name}
             id={name}
             onChange={handleValueFile}

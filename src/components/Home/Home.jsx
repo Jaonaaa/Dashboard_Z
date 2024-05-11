@@ -14,13 +14,16 @@ const Home = () => {
   const { formData, handleInputForm } = useForm();
   const submit = async (e) => {
     e.preventDefault();
-    // formData.time = formData.time.replace("T", " ");
+    formData.time_ = formData.time + ":00.00+03:00";
+    // formData.time = formData.time;
+    //
+
     console.log(formData);
     let res = await alaivoPost("test/time", JSON.stringify(formData));
     console.log(res);
   };
   const get = async (e) => {
-    let res = await alaivoGet("test/time");
+    let res = await alaivoGet("test");
     console.log(res);
   };
   return (

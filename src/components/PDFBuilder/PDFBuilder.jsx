@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { Document, Page, Text, View, PDFViewer, PDFDownloadLink, Font } from "@react-pdf/renderer";
+import React, { useRef, useState } from "react";
+import { Document, Page, Text, View, PDFViewer, PDFDownloadLink, Font, Image } from "@react-pdf/renderer";
 import { dataDefault } from "../../utilsComponents/Table/Table";
 import Loader from "../../utilsComponents/Hider/Loader/Loader";
 import Modal from "../../utilsComponents/Modal/Modal";
 import { AnimatePresence } from "framer-motion";
 import Poppins from "../../assets/fonts/Poppins-Light.ttf";
 import SoraSM from "../../assets/fonts/Sora-SemiBold.ttf";
+import img from "../../assets/img/brume.jpg";
 import { styles } from "./style";
+import CustomChart from "../../utilsComponents/Chart/CustomChart";
+import { example2 } from "../Graphs/Graphs";
+import { getImage } from "../../utils/Image";
 
 Font.register({ family: "Poppins", fonts: [{ src: Poppins }, { src: SoraSM, fontWeight: "bold" }] });
 
@@ -14,22 +18,41 @@ Font.register({ family: "Poppins", fonts: [{ src: Poppins }, { src: SoraSM, font
 
 const PDFBuilder = () => {
   const [showPDF, setShowPDF] = useState(true);
+  const g = useRef(null);
+  const [picture, setPicture] = useState(null);
   const handlePdfView = () => {
     setShowPDF(!showPDF);
   };
+
+  const addPicture = async () => {
+    let res = await getImage(g.current);
+    setPicture(res);
+  };
+
   return (
     <div className="inner">
-      <PDFDownloadLink document={<MyDocument />} fileName="test.pdf">
+      <PDFDownloadLink document={<MyDocument img={picture} />} fileName="test.pdf">
         {({ blob, url, loading, error }) => (loading ? <Loader /> : <button>Download now</button>)}
       </PDFDownloadLink>
       <button onClick={handlePdfView}> Open PDF Viewer </button>
+      <button onClick={addPicture}> Add picture </button>
+
+      <div className="container_block" ref={g}>
+        <CustomChart
+          title="Second Chart"
+          labels={example2.labels}
+          datasets={example2.datasets}
+          type="doughnut"
+          positionTitle="bottom"
+        />
+      </div>
 
       <AnimatePresence>
         {showPDF && (
           <Modal closer={handlePdfView}>
             <div className="container_pdf" style={{ height: "85vh", width: "35rem" }}>
               <PDFViewer style={{ width: "100%", height: "93%", backgroundColor: "transparent" }} showToolbar={false}>
-                <MyDocument />
+                <MyDocument img={picture} />
               </PDFViewer>
             </div>
           </Modal>
@@ -40,9 +63,13 @@ const PDFBuilder = () => {
 };
 
 // Create Document Component
-const MyDocument = () => (
+const MyDocument = ({ img }) => (
   <Document>
     <Page size="A4" style={styles.page}>
+      <View style={{ width: "60%", margin: "20px auto " }}>{img ? <Image src={img} /> : null}</View>
+      <TablePdf {...dataDefault} />
+      <TablePdf {...dataDefault} />
+      <TablePdf {...dataDefault} />
       <TablePdf {...dataDefault} />
     </Page>
   </Document>

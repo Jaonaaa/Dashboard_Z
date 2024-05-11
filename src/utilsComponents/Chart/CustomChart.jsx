@@ -35,6 +35,7 @@ export const example = {
  *@property {String} title
  *@property {"default"|"bottom"|"top"} positionTitle
  *@property {"line"|"doughnut"|"bar"|"pie"|"polarArea"} type
+ *@property {{}} options
  */
 
 /**
@@ -43,10 +44,11 @@ export const example = {
  * @returns
  */
 const CustomChart = (props) => {
-  const { labels, datasets, title, type, positionTitle } = props;
+  const { labels, datasets, title, type, positionTitle, options } = props;
   const chartData = {
     labels: labels,
     datasets: datasets,
+    options: options,
   };
 
   return (
